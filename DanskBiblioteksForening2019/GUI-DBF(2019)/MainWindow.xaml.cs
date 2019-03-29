@@ -28,8 +28,10 @@ namespace GUI_DBF_2019_
             InitializeComponent();
             UCGUI ucg = new UCGUI(CB, gridRight);
             UserControlListView uclw = new UserControlListView(CB, gridLeft);
+            UCLogin ucLogIN = new UCLogin(CB);
             gridLeft.Children.Add(uclw);
             gridRight.Children.Add(ucg);
+            MainGrid.Children.Add(ucLogIN);
         }
     }
 }

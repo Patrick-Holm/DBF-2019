@@ -67,7 +67,39 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-       
+        private int _bogid;
+
+        public int bogid
+        {
+            get { return _bogid; }
+            set
+            {
+                if (value != _bogid)
+                {
+                    _bogid = value;
+                    Notify("bogid");
+
+                }
+            }
+        }
+        private int _personid;
+
+        public int personid
+        {
+            get { return _personid; }
+            set
+            {
+                if (value != _personid)
+                {
+                    _personid = value;
+                    Notify("personid");
+
+                }
+            }
+        }
+
+
+
         public DateTime udlaansdate
         {
             get { return _udlaansdate; }
@@ -76,7 +108,7 @@ namespace REPO_DBF_2019_
                 if (value != _udlaansdate)
                 {
                     _udlaansdate = value;
-                    strUdlaansDate = _udlaansdate.Year.ToString() + _udlaansdate.Month.ToString() + _udlaansdate.Date.ToString();
+                    strUdlaansDate = _udlaansdate.ToShortDateString();
                 }
             }
         }

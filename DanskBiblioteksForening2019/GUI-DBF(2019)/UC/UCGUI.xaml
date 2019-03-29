@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="GUI_DBF_2019_.UCGUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI_DBF_2019_"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid x:Name="UCGUIGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition />
+
+        </Grid.RowDefinitions>
+
+            <TextBox x:Name="isbn"
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="0" 
+                     IsReadOnly="True"
+                     Text="{Binding bog.isbnNr.ISBN}"
+                     />
+            <TextBox x:Name="titel" 
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="1" 
+                     IsReadOnly="True"
+                     Text="{Binding bog.titel.title}"
+                     />
+            <TextBox x:Name="Udånsdato" 
+                     Grid.Column="1" 
+                     Grid.Row="2" 
+                     Margin="5,5,5,5"
+                     IsReadOnly="True"
+                 Text="{Binding bog.rentdate.strUdlaansDate}"
+                     />
+            <TextBox x:Name="forfatter" 
+                     Grid.Column="1" 
+                     Grid.Row="3" 
+                     IsReadOnly="True"
+                     Margin="5,5,5,5"
+                     Text="{Binding bog.forfatter.author}"
+                     />
+            <TextBox x:Name="forlag" 
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="4" 
+                     IsReadOnly="True"
+                     Text="{Binding bog.forlag.publisher}" />
+            <TextBox x:Name="genre" 
+                     Grid.Column="1" 
+                     Grid.Row="5" 
+                     IsReadOnly="True"
+                     Margin="5,5,5,5"
+                     Text="{Binding bog.genre.genre}" />
+            <TextBox x:Name="type"  
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="6" 
+                     IsReadOnly="True"
+                     Text="{Binding bog.type.type}" 
+                     />
+        <Label Content="&#xD;&#xA;ISBN"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="0"
+                   VerticalAlignment="Stretch"/>
+            <Label Content="&#xD;&#xA;Titel"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="1"
+                   VerticalAlignment="Stretch"/>
+            <Label Content="&#xD;&#xA;Udånsdato"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="2"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Forfatter"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="3"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Forlag"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="4"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Genre"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="5"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Type"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="6"
+                   VerticalAlignment="Stretch" />
+        <Button x:Name="CreateNewBook"
+                Content="Opret ny bog"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80" Click="CreateNewBook_Click" 
+                />
+        <Button x:Name="EditBook"
+                Content="Rediger"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80"
+                Click="EditBook_Click" />
+
+
+    </Grid>
+    <!--</Grid>-->
+</UserControl>

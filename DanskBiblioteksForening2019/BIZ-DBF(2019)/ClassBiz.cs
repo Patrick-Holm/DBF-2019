@@ -13,16 +13,20 @@ namespace BIZ_DBF_2019_
     {
         // Private fields
         private ObservableCollection<ClassBog> _boeger;
-        private ObservableCollection<ClassBog> _laanteBoeger;
+       // private ObservableCollection<ClassBog> _laanteBoeger;
         private ObservableCollection<ClassTitle> _bookTitles;
         private ObservableCollection<ClassAuthor> _bookAuthors;
         private ObservableCollection<ClassPublisher> _bookPublishers;
         private ObservableCollection<ClassGenre> _bookGenre;
         private ObservableCollection<ClassType> _bookTypes;
-        private ObservableCollection<decimal> _bookPrices;
+       // private ObservableCollection<decimal> _bookPrices;
         private ObservableCollection<DateTime> _rentDate;
         private ClassBog _bog;
-       
+        private ObservableCollection<ClassISBN> _bookIsbns;
+
+        
+
+
         private ClassUser _user;
         ClassDbfDB classDbfDB;
 
@@ -34,27 +38,27 @@ namespace BIZ_DBF_2019_
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             user = new ClassUser();
+            MakeCollectionsForComboBoxes();
+            //boeger = classDbfDB.GetAllBooks();
 
-            boeger = classDbfDB.GetAllBooks();
-            
 
         }
 
 
         // Public properties
         #region properties
-        public ObservableCollection<decimal> bookPrices
-        {
-            get { return _bookPrices; }
-            set
-            {
-                if (value != _bookPrices)
-                {
-                    _bookPrices = value;
-                    Notify("bookPrices");
-                }
-            }
-        }
+        //public ObservableCollection<decimal> bookPrices
+        //{
+        //    get { return _bookPrices; }
+        //    set
+        //    {
+        //        if (value != _bookPrices)
+        //        {
+        //            _bookPrices = value;
+        //            Notify("bookPrices");
+        //        }
+        //    }
+        //}
 
         public ObservableCollection<DateTime> rentDate
         {
@@ -132,7 +136,20 @@ namespace BIZ_DBF_2019_
                 }
             }
         }
-        
+
+        public ObservableCollection<ClassISBN> bookIsbns
+        {
+            get { return _bookIsbns; }
+            set
+            {
+                if (value != _bookIsbns)
+                {
+                    _bookIsbns = value;
+                    Notify("bookIsbns");
+                }
+            }
+        }
+
         public ClassUser user
         {
             get { return _user; }
@@ -159,18 +176,18 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<ClassBog> laanteBoeger
-        {
-            get { return _laanteBoeger; }
-            set
-            {
-                if (value != _laanteBoeger)
-                {
-                    _laanteBoeger = value;
-                    Notify("laanteBoeger");
-                }
-            }
-        }
+        //public ObservableCollection<ClassBog> laanteBoeger
+        //{
+        //    get { return _laanteBoeger; }
+        //    set
+        //    {
+        //        if (value != _laanteBoeger)
+        //        {
+        //            _laanteBoeger = value;
+        //            Notify("laanteBoeger");
+        //        }
+        //    }
+        //}
 
         public ObservableCollection<ClassBog> boeger
         {
@@ -185,15 +202,29 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public void GetBooksFromDB()
+        public void GetBooksFromDB(string bookTag)
         {
-            boeger = classDbfDB.GetAllBooks();
+            switch (bookTag)
+            {
+                case "1": //Udlånt til mig
+                    boeger = classDbfDB.GetAllLentToUser(user, bookTag);
+                    break;
+                case "2": // Alle ledige bøger
+                    boeger = classDbfDB.GetAllAvailableBooks();
+                    break;
+                case "4": //Afleveret af mig
+                    boeger = classDbfDB.GetAllLentToUser(user, bookTag);
+                    break;
+                default:
+                    break;
+            }
+            
             MakeCollectionsForComboBoxes();
         }
         #endregion
-        public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
+        public ObservableCollection<ClassBog> GetAllLentBooks(ClassUser personID)
         {
-            return classDbfDB.GetAllLentToUser(personID.ToString());
+            return classDbfDB.GetAllLentToUser(personID, "1");
         }
 
         public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
@@ -222,7 +253,7 @@ namespace BIZ_DBF_2019_
             user = classDbfDB.GetUser(user.userName, user.password);
             if (user.id > 0)
             {
-                laanteBoeger = GetAllLentBooks(user.id);
+                boeger = classDbfDB.GetAllLentToUser(user, "1");
                 return true;
             }
             else
@@ -238,7 +269,7 @@ namespace BIZ_DBF_2019_
             bookPublishers = classDbfDB.GetPublishers();
             bookTypes = classDbfDB.GetTypes();
             bookGenre = classDbfDB.GetGenre();
-            bookPrices = classDbfDB.GetPrices();
+            bookIsbns = classDbfDB.GetISBNs();
         }
     }
 }

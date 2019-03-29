@@ -29,91 +29,154 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-        <Label Content="&#xD;&#xA;ISBN"
+        <Label Content="ISBN"
                    HorizontalAlignment="Stretch"
                    Grid.Row="0"
-                   VerticalAlignment="Stretch"/>
-        <Label Content="&#xD;&#xA;Titel"
+                   VerticalAlignment="Stretch"
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center"/>
+        <Label Content="Titel"
                    HorizontalAlignment="Stretch"
                    Grid.Row="1"
-                   VerticalAlignment="Stretch"/>
-        <Label Content="&#xD;&#xA;Udgivelsesdag"
+                   VerticalAlignment="Stretch"
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center"/>
+        
+        <Label Content="Forfatter"
                    HorizontalAlignment="Stretch"
                    Grid.Row="2"
-                   VerticalAlignment="Stretch" 
-                   />
-        <Label Content="&#xD;&#xA;Forfatter"
+                   VerticalAlignment="Stretch"
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center" />
+        <Label Content="Forlag"
                    HorizontalAlignment="Stretch"
                    Grid.Row="3"
                    VerticalAlignment="Stretch"
-                   />
-        <Label Content="&#xD;&#xA;Forlag"
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center" />
+        <Label Content="Genre"
                    HorizontalAlignment="Stretch"
                    Grid.Row="4"
                    VerticalAlignment="Stretch"
-                   />
-        <Label Content="&#xD;&#xA;Genre"
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center" />
+        <Label Content="Type"
                    HorizontalAlignment="Stretch"
                    Grid.Row="5"
                    VerticalAlignment="Stretch"
-                   />
-        <Label Content="&#xD;&#xA;Type"
-                   HorizontalAlignment="Stretch"
-                   Grid.Row="6"
-                   VerticalAlignment="Stretch"
-                   />
+               Margin="5,0,0,0"
+               VerticalContentAlignment="Center" />
  
         <Button x:Name="ISBN_Edit"
             Content="Ændre" 
+                Margin="5,15,5,15"
             HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
             Grid.ColumnSpan="2" Click="ISBN_Edit_Click"/>
         <Button x:Name="TitelEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
+            Content="Ændre"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
             Grid.Row="1"
             Grid.ColumnSpan="2" Click="TitelEdit_Click"/>
-        <Button x:Name="releasedateEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
-            VerticalAlignment="Stretch"
-            Grid.Column="2" 
-             Grid.Row="2" Grid.ColumnSpan="2" Click="ReleasedateEdit_Click"/>
         <Button x:Name="forfatterEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
+            Content="Ændre"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
-            Grid.Row="3" Grid.ColumnSpan="2" Click="ForfatterEdit_Click"/>
+            Grid.Row="2" Grid.ColumnSpan="2" Click="ForfatterEdit_Click"/>
         <Button x:Name="forlagEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
+            Content="Ændre"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.ColumnSpan="2" Click="ForlagEdit_Click"/>
         <Button x:Name="genreEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
+            Content="Ændre"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
-            Grid.Row="5" Grid.ColumnSpan="2" Click="GenreEdit_Click"/>
+            Grid.Row="4" Grid.ColumnSpan="2" Click="GenreEdit_Click"/>
         <Button x:Name="typeEdit"
-            Content="Ændre" 
-            HorizontalAlignment="Stretch" 
+            Content="Ændre"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Stretch" 
             VerticalAlignment="Stretch"
             Grid.Column="2" 
-            Grid.Row="6" Click="TypeEdit_Click" Grid.ColumnSpan="2"/>
-        <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox ItemsSource="{Binding bog.bookTitles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox ItemsSource="{Binding bog.bookAuthors, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox ItemsSource="{Binding bog.bookPublishers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox ItemsSource="{Binding bog.bookGenre, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Margin="10,10,10,10"/>
-        <ComboBox ItemsSource="{Binding bog.bookTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Margin="10,10,10,10"/>
+            Grid.Row="5" Click="TypeEdit_Click" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboISBN"
+                  ItemsSource="{Binding bookIsbns}"
+                  DisplayMemberPath="ISBN"
+                  SelectedValuePath="ISBN"
+                  SelectedItem="{Binding bog.isbnNr, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.isbnNr.ISBN}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="0" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10" />
+        <ComboBox x:Name="comboTitel"
+                  ItemsSource="{Binding bookTitles}"
+                  DisplayMemberPath="title"
+                  SelectedValuePath="title"
+                  SelectedItem="{Binding bog.titel, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.titel.title}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="1" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10"/>
+        <ComboBox x:Name="comboForfatter"
+                  ItemsSource="{Binding bookAuthors}"
+                  DisplayMemberPath="author"
+                  SelectedValuePath="author"
+                  SelectedItem="{Binding bog.forfatter, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.forfatter.author}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="2" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10"/>
+        <ComboBox x:Name="comboForlag"
+                  ItemsSource="{Binding bookPublishers}"
+                  DisplayMemberPath="publisher"
+                  SelectedValuePath="publisher"
+                  SelectedItem="{Binding bog.forlag, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.forlag.publisher}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="3" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10"/>
+        <ComboBox x:Name="comboGenre"
+                  ItemsSource="{Binding bookGenre}"
+                  DisplayMemberPath="genre"
+                  SelectedValuePath="genre"
+                  SelectedItem="{Binding bog.genre, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.genre.genre}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="4" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10"/>
+        <ComboBox x:Name="comboType"
+                  ItemsSource="{Binding bookTypes}"
+                  DisplayMemberPath="type"
+                  SelectedValuePath="type"
+                  SelectedItem="{Binding bog.type, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding bog.type.type}"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Row="5" 
+                  Grid.Column="1" 
+                  Margin="10,10,10,10"/>
         <Button x:Name="buttonCancel" Content="Fortryd" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" Grid.Row="8" VerticalAlignment="Stretch" Click="ButtonCancel_Click" />
         <Button x:Name="buttonSave" Content="Gem" HorizontalAlignment="Stretch" Margin="60,9.8,10,9.6" Grid.Row="8" VerticalAlignment="Stretch" Click="ButtonSave_Click" />
 

@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="GUI_DBF_2019_.UCNewBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI_DBF_2019_"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid Background="White" x:Name="UCNBGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tbisbn"
+                     Text="Indtast ISBN."
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="0" GotFocus="Isbn_GotFocus" 
+                     />
+        <TextBox x:Name="tbtitel" 
+                 Text="Indtast Titel."    
+                 Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="1" GotFocus="Titel_GotFocus" 
+                     />
+        <TextBox x:Name="tbudgivelsesdag" 
+                     Grid.Column="1" 
+                 Text="Indtast Udgivelsesdato."
+                     Grid.Row="2" 
+                     Margin="5,5,5,5" GotFocus="Udgivelsesdag_GotFocus"
+                     />
+        <TextBox x:Name="tbforfatter" 
+                     Grid.Column="1" 
+                 Text="Indtast Forfatter."
+                     Grid.Row="3" 
+                     Margin="5,5,5,5" GotFocus="Forfatter_GotFocus"
+                     />
+        <TextBox x:Name="tbforlag" 
+                     Margin="5,5,5,5"
+                 Text="Indtast Forlag."
+                     Grid.Column="1" 
+                     Grid.Row="4" GotFocus="Forlag_GotFocus" 
+                     />
+        <TextBox x:Name="tbgenre" 
+                     Grid.Column="1" 
+                 Text="Indtast Genre."
+                     Grid.Row="5" 
+                     Margin="5,5,5,5" GotFocus="Genre_GotFocus"
+                     />
+        <TextBox x:Name="tbtype" 
+                 Text="Indtast Type."
+                     Margin="5,5,5,5"
+                     Grid.Column="1" 
+                     Grid.Row="6" GotFocus="Type_GotFocus" 
+                     />
+        <TextBox x:Name="tbindkoeb" 
+                     Grid.Column="1" 
+                     Grid.Row="7"
+                 Text="Indtast Indkøb."
+                     Margin="5,5,5,5" GotFocus="Indkoeb_GotFocus"
+                     />
+        <Label Content="&#xD;&#xA;ISBN"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="0"
+                   VerticalAlignment="Stretch"/>
+        <Label Content="&#xD;&#xA;Titel"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="1"
+                   VerticalAlignment="Stretch"/>
+        <Label Content="&#xD;&#xA;Udgivelsesdag"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="2"
+                   VerticalAlignment="Stretch" />
+        <Label Content="&#xD;&#xA;Forfatter"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="3"
+                   VerticalAlignment="Stretch" />
+        <Label Content="&#xD;&#xA;Forlag"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="4"
+                   VerticalAlignment="Stretch" />
+        <Label Content="&#xD;&#xA;Genre"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="5"
+                   VerticalAlignment="Stretch" />
+        <Label Content="&#xD;&#xA;Type"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="6"
+                   VerticalAlignment="Stretch" />
+        <Label Content="&#xD;&#xA;Indkøb"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="7"
+                   VerticalAlignment="Stretch" />
+        <Button x:Name="buttonCancel"
+                Content="Fortryd"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80" Click="ButtonCancel_Click" 
+                />
+        <Button x:Name="buttonSave"
+                Content="Gem"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80" Click="ButtonSave_Click" />
+
+
+    </Grid>
+</UserControl>
