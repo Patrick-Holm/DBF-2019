@@ -30,7 +30,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Titel"
-                                    Width="auto"
+                                    
+                                    Width="110"
                                     DisplayMemberBinding="{Binding titel.title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Isbnr"
                                     Width="auto"
